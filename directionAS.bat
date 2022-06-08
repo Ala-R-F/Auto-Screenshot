@@ -1,0 +1,1 @@
+"C:\Users\meuUser\AppData\Local\Programs\Python\Python38\python.exe" "C:\Users\meuUser\pasta\AutoScreenshot.py"
