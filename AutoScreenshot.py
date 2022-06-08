@@ -59,7 +59,7 @@ def window():
             [sg.Input(key='-IN_ARQ-', default_text='temp.jpeg'), sg.Button('Definir')],
             [sg.Text('Programa alvo (Nome exato):'), sg.Text(size=(15,1), key='-OUT_ALVO-')],
             [sg.Input(key='-IN_ALVO-', default_text='Calculadora'), sg.Button('Mudar alvo')],
-            [sg.Button('Iniciar/Pausar Programa'), sg.Text(size=(15,1), key='-STATE-')],
+            [sg.Button('Iniciar/Pausar Programa', button_color=('brown2')), sg.Text(size=(15,1), key='-STATE-')],
             [sg.Button('Sair')]]
     
     window = sg.Window('AutoScreenshot', layout) 
