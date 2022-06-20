@@ -5,6 +5,9 @@ from ctypes import windll
 from PIL import Image
 from PySimpleGUI import PySimpleGUI as sg
 from threading import Thread
+import tkinter
+from tkinter import filedialog
+import os
 
 state = False
 winOpen = True
@@ -47,6 +50,15 @@ def screenshot():
     if result == 1:
         im.save(f"{path}/{arqNome}")
 
+def search_for_file_path ():
+    root = tkinter.Tk()
+    root.withdraw()
+    currdir = os.getcwd()
+    tempdir = filedialog.askdirectory(parent=root, initialdir=currdir, title='Please select a directory')
+    if len(tempdir) > 0:
+        print ("You chose: %s" % tempdir)
+    return tempdir
+
 def window():
     sg.theme('LightBlue')
     global winOpen
@@ -59,7 +71,9 @@ def window():
             [sg.Input(key='-IN_ARQ-', default_text='temp.jpeg'), sg.Button('Definir')],
             [sg.Text('Programa alvo (Nome exato):'), sg.Text(size=(15,1), key='-OUT_ALVO-')],
             [sg.Input(key='-IN_ALVO-', default_text='Calculadora'), sg.Button('Mudar alvo')],
-            [sg.Button('Iniciar/Pausar Programa', button_color=('brown2')), sg.Text(size=(15,1), key='-STATE-')],
+            [sg.Text('Caminho da pasta:'), sg.Button('Mudar pasta')],
+            [sg.Text(size=(50,1), key='-OUT_PATH-')],
+            [sg.Button('Iniciar/Pausar Programa', button_color=('brown1')), sg.Text(size=(15,1), key='-STATE-')],
             [sg.Button('Sair')]]
     
     window = sg.Window('AutoScreenshot', layout) 
@@ -97,6 +111,10 @@ def window():
             if event == 'Mudar alvo': 
                 window['-OUT_ALVO-'].update(values['-IN_ALVO-'])
                 alvo = values['-IN_ALVO-']
+            
+            if event == 'Mudar pasta':
+                path = search_for_file_path()
+                window['-OUT_PATH-'].update(path)
 
             if event == 'Iniciar/Pausar Programa':
                 if state == False:
