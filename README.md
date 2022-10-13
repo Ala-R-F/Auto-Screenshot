@@ -1,5 +1,5 @@
 # Auto-Screenshot
-Programa que faz capturas de tela automáticas de uma janela, incluindo no background. Foram utilizados Python, PySimpleGUI para a GUI, e outros pacotes python. Tranformado em executável no Py2Exe.
+Programa que faz capturas de tela automáticas de uma janela, incluindo no background. Foram utilizados Python, PySimpleGUI para a GUI, e outros pacotes python. Transformado em executável no Py2Exe, porém é versão não mantida.
 
 Há duas maneiras de usar o programa:
 <ul>
